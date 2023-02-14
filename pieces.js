@@ -2,7 +2,8 @@
 const reponse = await fetch("pieces-autos.json");
 const pieces = await reponse.json();
 
-const article = pieces[3];
+for (let i=0; i<pieces.length;i++){
+const article = pieces[i];
 const imageElement = document.createElement("img");
 imageElement.src = article.image;
 const nomElement = document.createElement("h2");
@@ -19,3 +20,4 @@ sectionFiches.appendChild(imageElement);
 sectionFiches.appendChild(nomElement);
 sectionFiches.appendChild(prixElement);
 sectionFiches.appendChild(categorieElement);
+}
