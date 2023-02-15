@@ -36,20 +36,42 @@ for (let i = 0; i < pieces.length; i++) {
 
  }
  
- const boutonTrier = document.querySelector(".btn-trier");
- boutonTrier.addEventListener("click", function () {
-    const piecesOrdonnees=Array.from(pieces);
-    piecesOrdonnees.sort(function (a,b) {
-        return a.prix-b.prix;
-    });
-    console.log(piecesOrdonnees);
- });
+ //gestion des boutons 
+const boutonTrier = document.querySelector(".btn-trier");
 
- const boutonFiltrer = document.querySelector(".btn-filtrer");
+boutonTrier.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return a.prix - b.prix;
+     });
+     console.log(piecesOrdonnees);
+});
 
- boutonFiltrer.addEventListener("click", function () {
+const boutonFiltrer = document.querySelector(".btn-filtrer");
+
+boutonFiltrer.addEventListener("click", function () {
     const piecesFiltrees = pieces.filter(function (piece) {
         return piece.prix <= 35;
     });
-    console.log(piecesFiltrees);
+   console.log(piecesFiltrees)
+});
+
+const boutonFiltrerDescription = document.querySelector(".btn-filtrer-description");
+
+boutonFiltrerDescription.addEventListener("click", function () {
+    const piecesFiltrees = pieces.filter(function (piece) {
+        return piece.description != null;
+    });
+   console.log(piecesFiltrees)
+});
+
+const boutonTrierDecroissant = document.querySelector(".btn-trier-decroissant");
+
+boutonTrierDecroissant.addEventListener("click", function () {
+    const piecesOrdonnees = Array.from(pieces);
+    piecesOrdonnees.sort(function (a, b) {
+        return a.prix - b.prix;
+     });
+     let piecesOrdonneeDecroissant=piecesOrdonnees.reverse()
+     console.log(piecesOrdonneeDecroissant);
 });
